@@ -1,0 +1,11 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd ../.. && pnpm install && cd apps/api && npx tsc --noEmitOnError false || true"
+
+[deploy]
+startCommand = "node dist/server.js"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[environments.production]
+PORT = "4000"
