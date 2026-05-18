@@ -1,0 +1,34 @@
+{
+  "name": "medicore",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MediCore — Universal Medical Practice Management Platform",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "db:migrate": "turbo run db:migrate --filter=@medicore/database",
+    "db:seed": "turbo run db:seed --filter=@medicore/database",
+    "db:studio": "turbo run db:studio --filter=@medicore/database",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "prettier": "^3.3.0"
+  },
+  "pnpm": {
+    "allowedBuilds": {
+      "@prisma/client": true,
+      "@prisma/engines": true,
+      "prisma": true,
+      "esbuild": true
+    }
+  }
+}
