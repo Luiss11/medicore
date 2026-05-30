@@ -16,9 +16,6 @@ RUN pnpm install --frozen-lockfile
 
 RUN pnpm --filter @medicore/database exec prisma generate
 
-# Build ignoring TS errors
-RUN cd apps/api && npx tsc -p tsconfig.json --noEmitOnError false || true
-
 EXPOSE 4000
 
-CMD ["node", "apps/api/dist/server.js"]
+CMD ["node", "--import", "tsx/esm", "apps/api/src/server.ts"]
